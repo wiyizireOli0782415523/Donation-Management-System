@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<title>DMS</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+    /* Center the main content vertically and horizontally */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    /* Style the heading and subheading */
+    h1, h2 {
+        text-align: center;
+        margin: 0;
+        font-weight: normal;
+    }
+
+    h1{
+
+        font-family:roboto;
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+
+    h2 {
+        font-family:roboto;
+        font-size: 1.5em;
+        margin-bottom: 5px;
+        color:#005CBB;
+    }
+
+    /* Style the form */
+    form {
+        font-family:roboto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background-color: white;
+        padding: 30px;
+        width: 30%;
+        height: 70%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the input fields */
+    input[type="text"], input[type="password"]{
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+    select{
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color:#005CBB;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+    a{
+        text-decoration:underline;
+        color: #005CBB;
+    }
+    /* Hover state for the submit button */
+    input[type="submit"]:hover {
+        background-color: #005CBB;
+    }
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color:#005CBB;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <a style="text-decoration: none; color:black;" href="/"th:href="@{/welcome}"><h1>DONATION MANAGEMENT SYSTEM</h1></a>
+
+<form th:action="@{/register}" th:object="${user}" method="post">
+    <h2>SIGN UP</h2>
+    <input type="text" th:field="*{firstName}" placeholder="First Name" />
+    <input type="text" th:field="*{lastName}" placeholder="Last Name" />
+    <input type="text" th:field="*{mobile}" placeholder="Mobile Number" />
+    <input type="text" th:field="*{email}" placeholder="Email" />
+    <input type="password" th:field="*{password}" placeholder="Password" />
+    <select th:field="*{role}" required>
+        <option value="">Select</option>
+        <option value="ADMIN">ADMIN</option>
+        <option value="USER">USER</option>
+    </select>
+    <button type="submit">Register</button>  <a th:href="@{|/login|}" th:text="'Log in'"></a>
+    <span th:utext="${successMessage}"></span>
+    <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
+        <ul th:each="data : ${bindingResult.getAllErrors()}">
+            <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+        </ul>
+    </div>
+</form>
+</body>
+</html>

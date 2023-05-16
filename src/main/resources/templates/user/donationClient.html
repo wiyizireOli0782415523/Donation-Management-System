@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Donation Management System</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboardClient.html">Dashboard</a></li>
+          <li><a href="donationClient.html" style="color:#333;">Donations</a></li>
+          <li><a href="donorClient.html"> Donate </a></li>
+          <li><a href="reportsClient.html">Reports</a></li>
+          <li><a href="settingsClient.html">Settings</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Welcome, Admin</button>
+              <div class="dropdown-content">
+                <form action="../login.html" method="post">
+                  <button type="submit">Logout</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>    
+    <main>
+      <aside>
+        <ul>
+          <li><a href="dashboardClient.html">Dashboard</a></li>
+          <li><a style="color: white;" href="donationClient.html">Donations</a></li>
+          <li><a href="donorClient.html">Donate </a></li>
+          <li><a href="reportsClient.html">Reports</a></li>
+          <li><a href="settingsClient.html">Settings</a></li>
+        </ul>
+      </aside>
+      <section class="overview">
+        <!-- Overview Cards -->
+      </section>
+      <section class="donations">
+        <table>
+          <thead> <h2 style="font: size 100px;font-family:roboto;">DONATIONS HISTORY</h2>
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Amount</th> 
+              <th>country</th>              
+              <th>Status</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each = "donor:${donor}" >
+              <td th:text = "$(donor.firstName)"></td>
+              <td th:text = "$(donor.laststName)"></td>
+              <td th:text = "$(donor.dob)"></td>
+              <td th:text = "$(donor.Country)"></td>           
+              <td> Received </td>
+            </tr>
+
+            <!-- Add more rows for donations -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <!-- Footer Content -->
+    </footer>
+  </body>
+</html>

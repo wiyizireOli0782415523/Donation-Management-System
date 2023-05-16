@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <h1>Donation Management System</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="dashboardClient.html">Dashboard</a></li>
+      <li><a href="donationClient.html">Donations</a></li>
+      <li><a href="donorClient.html" style="color:#333;"> Donate </a></li>
+      <li><a href="reportsClient.html">Reports</a></li>
+      <li><a href="settingsClient.html">Settings</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Welcome, Admin</button>
+          <div class="dropdown-content">
+            <form action="../login.html" method="post">
+              <button type="submit">Logout</button>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <aside>
+    <ul>
+      <li><a href="dashboardClient.html">Dashboard</a></li>
+      <li><a href="donationClient.html">Donations</a></li>
+      <li><a href="donorClient.html" style="color:white;">Donate </a></li>
+      <li><a href="reportsClient.html">Reports</a></li>
+      <li><a href="settingsClient.html">Settings</a></li>
+    </ul>
+  </aside>
+  <section class="overview-donor">
+    BECOME A DONOR
+  </section>
+  <section class="donations-donor">
+
+    <td>
+      <button class="donation-btn" onclick="openDonationForm()">Donate</button>
+    </td>
+
+    <td>
+      <button class="donation-btn" onclick="openDonationForm2()">Register as a donor</button>
+    </td>
+
+    <div id="donation-form-popup" class="donation-form">
+      <form id="donation-form1" th:action="@{/saveDonation}" th:object="${donation}" method="POST">
+        <!-- Donation form fields go here -->
+        <h2>Make a Donation</h2>
+
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" th:field="*{firstName}" required>
+
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" th:field="*{lastName}"  required>
+
+        <input type="number" id="amount" name="amount" placeholder="Amount" th:field="*{amount}"  required>
+
+        <input type="text" id="country" name="country" placeholder="country" th:field="*{country}" required>
+
+        <input type="Date" id="donationDate" name="donationDate" placeholder="Last Name" th:field="*{donationDate}"  required>
+
+        <select id="status" name="status" th:field="*{status}">
+          <option value="Not received"> Not Received</option>
+        </select>
+        <!-- Add more fields as needed -->
+        <button type="submit">Donate</button>
+      </form>
+      <button class="close-btn" onclick="closeDonationForm()">Cancel</button>
+    </div>
+
+    <div id="donation-form-popup2" class="donation-form">
+      <form id="donation-form2" th:action="@{/saveDonor}" th:object="${donor}" method="POST">
+        <!-- Donation form fields go here -->
+        <h2>Register as a Donor</h2>
+
+        <input  id="fName" name="fName" placeholder="First Name" th:field="*{firstName}" required>
+
+        <input  id="lName" name="lName" placeholder="Last Name" th:field="*{lastName}"  required>
+
+        <input  type="date" id="dob" name="dob" placeholder="Date of birth" th:field="*{dob}"  required>
+
+        <input  id="country" name="country" placeholder="Country" th:field="*{country}"  required>
+
+        <input  id="email" name="email" placeholder="email" th:field="*{email}"  required>
+
+        <select id="gender" name="gender" th:field="*{gender}"  required>
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <select id="status" name="status" th:field="*{status}">
+          <option value="Active">Active</option>
+        </select>
+        <!-- Add more fields as needed -->
+        <button type="submit">Register</button>
+      </form>
+      <button class="close-btn" onclick="closeDonationForm2()">Cancel</button>
+    </div>
+
+
+  </section>
+</main>
+<footer>
+  <!-- Footer Content -->
+</footer>
+</body>
+
+
+<script>
+  function openDonationForm() {
+    document.getElementById("donation-form-popup").style.display = "block";
+  }
+
+  function closeDonationForm() {
+    document.getElementById("donation-form-popup").style.display = "none";
+  }
+</script>
+
+<script>
+  function openDonationForm2() {
+    document.getElementById("donation-form-popup2").style.display = "block";
+  }
+
+  function closeDonationForm2() {
+    document.getElementById("donation-form-popup2").style.display = "none";
+  }
+</script>
+
+
+</html>

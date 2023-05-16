@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Donation Management System</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="donation.html">Donations</a></li>
+          <li><a href="donor.html">Donors</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a style="color:#333;" href="settings.html">Settings</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Welcome, Admin</button>
+              <div class="dropdown-content">
+                <form action="../login.html" method="post">
+                  <button type="submit">Logout</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>    
+    <main>
+      <aside>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="donation.html">Donations</a></li>
+          <li><a href="donor.html">Donors</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a style="color: white;" href="settings.html">Settings</a></li>
+        </ul>
+      </aside>
+      
+      <section class="settings">
+        <!-- Settings Form -->
+        <form action="update_settings.html" method="post">
+          <h2>Change Password</h2>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password"> Old Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit">Save Changes</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <!-- Footer Content -->
+    </footer>
+  </body>
+</html>

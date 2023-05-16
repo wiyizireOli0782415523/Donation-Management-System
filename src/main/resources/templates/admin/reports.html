@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Donation Management System</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="donation.html">Donations</a></li>
+          <li><a href="donor.html">Donors</a></li>
+          <li><a href="reports.html" style="color:#333;">Reports</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Welcome, Admin</button>
+              <div class="dropdown-content">
+                <form action="../login.html" method="post">
+                  <button type="submit">Logout</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>    
+    <main>
+      <aside>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="donation.html">Donations</a></li>
+          <li><a href="donor.html">Donors</a></li>
+          <li><a style="color: white;" href="reports.html">Reports</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </aside>
+      <section class="overview">
+        <!-- Overview Cards -->
+        <div class="statistics-card">
+          <h2>TOTAL DONATIONS</h2>
+          <p>1,234 RWF</p>
+        </div>
+
+        <div class="statistics-card">
+          <h2>DONATION GOAL</h2>
+          <p>50,000 RWF</p>
+        </div>
+
+        <div class="statistics-card">
+          <h2>ACTIVE DONORS</h2>
+          <p>6</p>
+        </div>
+
+        <div class="statistics-card">
+          <h2>TOTAL DONORS</h2>
+          <p>15</p>
+        </div>
+      </section>
+      <section class="reports">
+        <!-- Reports Table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Report Name</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monthly Donations</td>
+              <td><a href="reports/monthly_donations.pdf" download>Download</a></td>
+            </tr>
+            <tr>
+              <td>Donor Analysis</td>
+              <td><a href="reports/donor_analysis.pdf" download>Download</a></td>
+            </tr>
+            <!-- Add more reports here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <!-- Footer Content -->
+    </footer>
+  </body>
+</html>

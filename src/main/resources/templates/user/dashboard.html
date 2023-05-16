@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Donation Management System</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html" style="color:#333;">Dashboard</a></li>
+            <li><a href="donationClient.html">Donations</a></li>
+            <li><a href="donorClient.html">Donate</a></li>
+            <li><a href="reportsClient.html">Reports</a></li>
+            <li><a href="settingsClient.html">Settings</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <p> <span sec:authentication="name"></span></p>
+                        <p> <span sec:authentication="authorities"></span></p>
+                    </button>
+                    <div class="dropdown-content">
+                        <form action="../login.html" method="post">
+                            <button type="submit">
+                                <p><a th:href="@{/logout}">Log out</a></p>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <aside>
+        <ul>
+            <li><a style="color: white;" href="dashboard.html">Dashboard</a></li>
+            <li><a href="donationClient.html">Donations</a></li>
+            <li><a href="donorClient.html">Donate</a></li>
+            <li><a href="reportsClient.html">Reports</a></li>
+            <li><a href="settingsClient.html">Settings</a></li>
+        </ul>
+    </aside>
+    <section class="overview">
+        <!-- Overview Cards -->
+        <div class="statistics-card">
+            <h2>YOUR DONATIONS </h2>
+            <p>0 RWF</p>
+        </div>
+
+        <div class="statistics-card">
+            <h2>NUMBER OF DONATIONS</h2>
+            <p>0</p>
+        </div>
+
+        <div class="statistics-card">
+            <h2>TOTAL DONATIONS</h2>
+            <p>0 RWF</p>
+        </div>
+
+        <div class="statistics-card">
+            <h2>DONATION GOAL</h2>
+            <p>5 000,000 RWF</p>
+        </div>
+
+    </section>
+    <section class="donations">
+        <!-- Donations Table -->
+    </section>
+</main>
+<footer>
+    <!-- Footer Content -->
+</footer>
+</body>
+</html>
